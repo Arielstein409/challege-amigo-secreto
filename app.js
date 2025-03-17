@@ -19,3 +19,24 @@ function agregarAmigo() {
     document.getElementById("amigo").value = '';
 
 }
+
+function recorrerLista(nombre) {
+    //obtener la referencia de la lista en el DOM
+    let listaAmigos = document.getElementById("listaAmigos");
+
+    //Limpiar la lista HTML antes de agregar los nuevos elementos
+    listaAmigos.innerHTML = '';
+
+    for (let i = 0; i < nombres.length; i++) {
+        let li = document.createElement("li");
+
+        //Asignar el nombre al texto del <li>
+        li.textContent = nombres[1];
+
+        //agregar el <li> al contenedor de la lista HTML
+        listaAmigos.appendChild(li);
+
+    }
+
+}
+
