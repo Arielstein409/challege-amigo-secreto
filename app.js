@@ -2,6 +2,14 @@
 
 let nombres = [];
 
+
+
+function asignarElemento(elementos, texto) {
+    let elementoHTML = document.querySelector(elementos)
+    elementoHTML.innerHTML = texto;
+    return;
+}
+
 function agregarAmigo() {
 
     // validar la entrada
@@ -18,11 +26,13 @@ function agregarAmigo() {
     //Vaciar para ingresar nuevo nombre
     document.getElementById("amigo").value = '';
 
+    //Regresar el elemento h2 a su estado original
+    asignarElemento('h2', 'Digite el nombre se sus amigos')
 
     recorrerLista();
 }
 
-function recorrerLista(nombre) {
+function recorrerLista() {
     //obtener la referencia de la lista en el DOM
     let listaAmigos = document.getElementById("listaAmigos");
 
@@ -42,10 +52,23 @@ function recorrerLista(nombre) {
 
 }
 
-function seleccionAleatoria() {
-    let nombreAleatorio = Math.floor(Math.random(listaAmigos));
 
 
 
+function sortearAmigo() {
+    //Validar que no haya amigos disponibles
+    if (nombres.length === 0) {
+        asignarElemento('h2', 'No hay amigos para sortear. Por favor, agregue al menos un nombre.');
+    } else {
+
+        //Generar un índice aleatorio
+        let indiceAleatorio = Math.floor(Math.random() * nombres.length);
+
+        //Obtener el nombre sorteado
+        let amigoSorteado = nombres[indiceAleatorio];
+
+        let resultado = document.getElementById("resultado");
+        resultado.innerHTML = `El amigo secreto sorteado es: <strong>${amigoSorteado}</strong>`;
+    }
 }
-console.log(seleccionAleatoria());
+
