@@ -18,6 +18,8 @@ function agregarAmigo() {
     //Vaciar para ingresar nuevo nombre
     document.getElementById("amigo").value = '';
 
+
+    recorrerLista();
 }
 
 function recorrerLista(nombre) {
@@ -31,7 +33,7 @@ function recorrerLista(nombre) {
         let li = document.createElement("li");
 
         //Asignar el nombre al texto del <li>
-        li.textContent = nombres[1];
+        li.textContent = nombres[i];
 
         //agregar el <li> al contenedor de la lista HTML
         listaAmigos.appendChild(li);
@@ -40,3 +42,10 @@ function recorrerLista(nombre) {
 
 }
 
+function seleccionAleatoria() {
+    let nombreAleatorio = Math.floor(Math.random(listaAmigos));
+
+
+
+}
+console.log(seleccionAleatoria());
